@@ -46,6 +46,12 @@ public class MonomerNotationGroupElement {
   private boolean isDefault = true;
 
   /**
+   * Default constructor used by ObjectMapper to do the deserialization.
+   */
+  public MonomerNotationGroupElement() {
+	  
+  }
+  /**
    * Constructs with the MonomerNotation and the ratio
    *
    * @param not MonomerNotation

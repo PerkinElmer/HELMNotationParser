@@ -12,6 +12,7 @@ import org.helm.notation2.parser.notation.HELM2Notation;
 import org.helm.notation2.parser.notation.grouping.GroupingMixture;
 import org.helm.notation2.parser.notation.grouping.GroupingOr;
 import org.helm.notation2.parser.notation.polymer.BlobEntity;
+import org.helm.notation2.parser.notation.polymer.ChemEntity;
 import org.helm.notation2.parser.notation.polymer.MonomerNotationGroup;
 import org.helm.notation2.parser.notation.polymer.MonomerNotationGroupMixture;
 import org.helm.notation2.parser.notation.polymer.MonomerNotationGroupOr;
@@ -49,7 +50,7 @@ public class GenerateObjectFromJSON {
     HELM2Notation helm2notation = null;
     ObjectMapper mapper = new ObjectMapper();
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    mapper.registerSubtypes(PeptideEntity.class, BlobEntity.class, PolymerEntity.class, GroupingMixture.class);
+    mapper.registerSubtypes(PeptideEntity.class, BlobEntity.class, PolymerEntity.class, ChemEntity.class, RNAEntity.class);
     mapper.registerSubtypes(PolymerListElements.class, PolymerSingleElements.class);
     mapper.registerSubtypes(MonomerNotationUnit.class, MonomerNotationUnitRNA.class, MonomerNotationList.class, MonomerNotationGroupOr.class, MonomerNotationGroupMixture.class, MonomerNotationGroup.class);
     mapper.registerSubtypes(GroupingOr.class, GroupingMixture.class);

@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="257" started-at="2016-02-18T16:20:11Z" finished-at="2016-02-18T16:20:12Z">
+  <suite name="Default suite" duration-ms="79" started-at="2016-03-03T01:16:27Z" finished-at="2016-03-03T01:16:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="257" started-at="2016-02-18T16:20:11Z" finished-at="2016-02-18T16:20:12Z">
-      <class name="org.helm.notation2.parser.GenerateObjectFromJSONTest">
-        <test-method status="PASS" signature="test()[pri:0, instance:org.helm.notation2.parser.GenerateObjectFromJSONTest@3fa14be0]" name="test" duration-ms="248" started-at="2016-02-18T17:20:11Z" finished-at="2016-02-18T17:20:12Z">
+    <test name="Default test" duration-ms="79" started-at="2016-03-03T01:16:27Z" finished-at="2016-03-03T01:16:28Z">
+      <class name="parsertest.annotationsectiontest.TestInputAnnotationSection">
+        <test-method status="PASS" signature="testSimpleInput()[pri:0, instance:parsertest.annotationsectiontest.TestInputAnnotationSection@246ae04d]" name="testSimpleInput" duration-ms="62" started-at="2016-03-03T09:16:27Z" finished-at="2016-03-03T09:16:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-      </class> <!-- org.helm.notation2.parser.GenerateObjectFromJSONTest -->
+        </test-method> <!-- testSimpleInput -->
+      </class> <!-- parsertest.annotationsectiontest.TestInputAnnotationSection -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

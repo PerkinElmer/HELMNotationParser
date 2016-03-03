@@ -45,6 +45,12 @@ public abstract class MonomerNotationGroup extends MonomerNotation {
   public List<MonomerNotationGroupElement> elements = new ArrayList<MonomerNotationGroupElement>();
 
   /**
+   * Default constructor used by ObjectMapper to do the deserialization.
+   */
+  public MonomerNotationGroup() {
+	  
+  }
+  /**
    * Constructs with the given string
    *
    * @param str Monomer

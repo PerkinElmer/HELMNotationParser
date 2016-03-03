@@ -36,6 +36,12 @@ import org.jdom2.JDOMException;
  */
 public class MonomerNotationGroupMixture extends MonomerNotationGroup {
 
+	/**
+	 * Default constructor used by ObjectMapper to do the deserialization.
+	 */
+	public MonomerNotationGroupMixture() {
+		
+	}
   /**
    * Constructs with the given String a mixture group
    *

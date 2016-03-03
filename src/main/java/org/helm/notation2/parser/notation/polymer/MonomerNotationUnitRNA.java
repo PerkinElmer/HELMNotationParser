@@ -50,6 +50,12 @@ public class MonomerNotationUnitRNA extends MonomerNotationUnit {
   private List<String> contentsInformation = new ArrayList<String>();
 
   /**
+   * Default constructor used by ObjectMapper to do the deserialization.
+   */
+  public MonomerNotationUnitRNA() {
+	  
+  }
+  /**
    * @param str
    * @param type
    * @throws IOException

@@ -36,6 +36,13 @@ import org.jdom2.JDOMException;
  */
 public class MonomerNotationGroupOr extends MonomerNotationGroup {
 
+	/**
+	 * Default constructor used by ObjectMapper to do the deserialization.
+	 */
+	public MonomerNotationGroupOr() {
+		
+	}
+	
   /**
    * Constructs with the given String an Or group
    *

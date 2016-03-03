@@ -40,7 +40,7 @@ public class TestInputAnnotationSection {
 	 */
 	@Test 
   public void testSimpleInput() throws ExceptionState, IOException, JDOMException {
-		test="PEPTIDE1{C.C.C.C.C.C}|BLOB1{Gold_Particle}\"Au10,Diameter:10nm\"$PEPTIDE1,BLOB1,C:R3-?:?$G1(PEPTIDE1:20-34+BLOB1)${�Name�:�Gold particle conjugated with peptides�,�Load�:26}$V2.0";
+		test="PEPTIDE1{C.C.C.C.C.C}|BLOB1{Gold_Particle}\"Au10,Diameter:10nm\"$PEPTIDE1,BLOB1,C:R3-?:?$G1(PEPTIDE1:20-34+BLOB1)${锟絅ame锟�:锟紾old particle conjugated with peptides锟�,锟絃oad锟�:26}$V2.0";
 		parser.parse(test);
 		
 
@@ -48,7 +48,7 @@ public class TestInputAnnotationSection {
         "PEPTIDE1{C.C.C.C.C.C}|PEPTIDE2{A.C.A.A.A.A}|BLOB1{Bead}$PEPTIDE1,BLOB1,2:R3-?:R1$$PEPTIDE1{Type:Peptide,Name:Gold-conjugated peptide}|BLOB1{Type:Gold particle,Name:Au10,Diameter:10nm}$V2.0";
 		parser.parse(test);
 		
-		test= "RNA1{R(A)P.R(G)P}|RNA2{R(A)P.R(G)P}|PEPTIDE1{A.G.C.H.E}|CHEM1{?}\"Lipid_A\"$PEPTIDE1,CHEM1,3:R3-?:?$G1(RNA1+RNA2:2)|G2(G1+PEPTIDE1:5.0)${�Name�:�lipid nanoparticle with RNA payload and peptide ligand�}$V2.0";
+		test= "RNA1{R(A)P.R(G)P}|RNA2{R(A)P.R(G)P}|PEPTIDE1{A.G.C.H.E}|CHEM1{?}\"Lipid_A\"$PEPTIDE1,CHEM1,3:R3-?:?$G1(RNA1+RNA2:2)|G2(G1+PEPTIDE1:5.0)${锟絅ame锟�:锟絣ipid nanoparticle with RNA payload and peptide ligand锟絵}$V2.0";
 		parser.parse(test);
   }
   
