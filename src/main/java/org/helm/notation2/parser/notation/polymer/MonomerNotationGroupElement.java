@@ -108,17 +108,33 @@ public class MonomerNotationGroupElement {
     }
 
   }
+  
+  public void setValue(List<Double> value)
+  {
+	  if(value.size()>0)
+	  {
+		  numberOne = value.get(0);
+	  }
+	  
+	  if(value.size()>1)
+	  {
+		  numberTwo = value.get(1);
+	  }
+  }
 
   /**
    * method to check if the interval is there or not
    *
    * @return true if the interval is there, false otherwise
    */
-  @JsonIgnore
   public boolean isInterval() {
 
     return isInterval;
 
+  }
+  
+  public void setInterval(boolean interval) {
+	this.isInterval=interval;
   }
 
   /**
@@ -138,10 +154,13 @@ public class MonomerNotationGroupElement {
    *
    * @return true if the value is default, false otherwise
    */
-  @JsonIgnore
   public boolean isDefaultValue() {
 
     return isDefault;
+  }
+  
+  public void setDefaultValue(boolean defaultValue) {
+	  this.isDefault=defaultValue;
   }
 
   /**

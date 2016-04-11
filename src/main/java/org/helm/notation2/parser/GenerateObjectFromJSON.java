@@ -24,10 +24,12 @@ import org.helm.notation2.parser.notation.polymer.PolymerEntity;
 import org.helm.notation2.parser.notation.polymer.PolymerListElements;
 import org.helm.notation2.parser.notation.polymer.PolymerSingleElements;
 import org.helm.notation2.parser.notation.polymer.RNAEntity;
+import org.helm.notation2.parser.notation.polymer.GroupEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -50,7 +52,7 @@ public class GenerateObjectFromJSON {
     HELM2Notation helm2notation = null;
     ObjectMapper mapper = new ObjectMapper();
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    mapper.registerSubtypes(PeptideEntity.class, BlobEntity.class, PolymerEntity.class, ChemEntity.class, RNAEntity.class);
+    mapper.registerSubtypes(PeptideEntity.class, BlobEntity.class, PolymerEntity.class, ChemEntity.class, RNAEntity.class, GroupEntity.class);
     mapper.registerSubtypes(PolymerListElements.class, PolymerSingleElements.class);
     mapper.registerSubtypes(MonomerNotationUnit.class, MonomerNotationUnitRNA.class, MonomerNotationList.class, MonomerNotationGroupOr.class, MonomerNotationGroupMixture.class, MonomerNotationGroup.class);
     mapper.registerSubtypes(GroupingOr.class, GroupingMixture.class);
@@ -58,5 +60,16 @@ public class GenerateObjectFromJSON {
     HELM2Notation obj = mapper.readValue(json, HELM2Notation.class);
     return obj;
   }
+  
+  public static String generateFromHELM2Notation(HELM2Notation notationContainer) throws JsonProcessingException
+  {
+	  ObjectMapper mapper = new ObjectMapper();
+
+      String jsonINString = mapper.writeValueAsString(notationContainer);
+      jsonINString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(notationContainer);
+
+      return jsonINString;
+  }
+  
 
 }

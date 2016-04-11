@@ -36,7 +36,12 @@ public class GroupingOr extends GroupingAmbiguity {
 
   private GroupingElement element;
 
-
+  /**
+   * Default constructor used by ObjectMapper to do the deserialization.
+   */
+  public GroupingOr() {
+	
+  }
 
   /**
    * Constructs with the given String representing a list of grouping elements. A possibility is attached to each

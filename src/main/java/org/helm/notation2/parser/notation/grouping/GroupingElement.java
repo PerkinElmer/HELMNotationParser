@@ -110,9 +110,17 @@ public final class GroupingElement {
   public boolean isDefaultValue() {
     return isDefault;
   }
+  
+  public void setDefaultValue(boolean defaultValue) {
+	  this.isDefault=defaultValue;
+  }
 
   public boolean isInterval() {
     return this.isInterval;
+  }
+  
+  public void setInterval(boolean interval) {
+	this.isInterval=interval;
   }
 
   /**

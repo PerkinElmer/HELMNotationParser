@@ -52,7 +52,6 @@ public class ConverterHELM1ToHELM2 {
     /* simple add character -> split works then */
     String helm1 = str + "f";
 
-
     StringBuilder helm2 = new StringBuilder();
     String[] sections = helm1.split("}\\$");
 

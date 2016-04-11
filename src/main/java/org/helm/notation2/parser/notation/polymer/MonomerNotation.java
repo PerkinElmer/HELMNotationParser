@@ -108,9 +108,20 @@ public abstract class MonomerNotation {
    */
   public void setCount(String str) {
     isDefault = false;
-    if (str.equals("1")) {
-      isDefault = true;
+
+    if (this.unit.equals("?")&&str.equals("0..n")) {
+	    isDefault = true;
+	}
+    else if (this.unit.equals("_")&&str.equals("0")) {
+	    isDefault = true;
+	}
+    else if (this.unit.equals("*")&&str.equals("0..n")) {
+	    isDefault = true;
+	}
+    else if(str.equals("1")) {
+        isDefault = true;
     }
+
 
     count = str;
   }

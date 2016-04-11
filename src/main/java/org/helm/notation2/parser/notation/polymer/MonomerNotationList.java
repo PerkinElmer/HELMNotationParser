@@ -45,6 +45,13 @@ import org.jdom2.JDOMException;
  */
 public class MonomerNotationList extends MonomerNotation {
 
+  /**
+   * Default constructor used by ObjectMapper to do the deserialization.
+   */
+  public MonomerNotationList() {
+	
+  }
+  
   private List<MonomerNotation> list = new ArrayList<MonomerNotation>();
 
   private int bracketCounterOpen = 0;
@@ -92,7 +99,23 @@ public class MonomerNotationList extends MonomerNotation {
    */
   @Override
   public String toHELM2() {
-    return "(" + unit + ")";
+	  
+    StringBuilder notation = new StringBuilder();
+    for (int i = 0; i < list.size(); i++) {
+      notation.append(list.get(i).toHELM2() + ".");
+    }
+    notation.setLength(notation.length() - 1);
+    String text =  "(" + notation.toString() + ")";
+    
+    if (isDefault == false) {
+    	text += "'" + count + "'";
+    }
+    
+    if (isAnnotationHere) {
+        text += "\"" + annotation + "\"";
+    }
+    return text;
+    
   }
 
   /**
