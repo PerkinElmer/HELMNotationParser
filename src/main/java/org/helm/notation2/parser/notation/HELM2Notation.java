@@ -26,6 +26,7 @@ package org.helm.notation2.parser.notation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.helm.notation2.parser.exceptionparser.HELM1ConverterException;
 import org.helm.notation2.parser.notation.annotation.AnnotationNotation;
 import org.helm.notation2.parser.notation.connection.ConnectionNotation;
 import org.helm.notation2.parser.notation.grouping.GroupingNotation;
@@ -220,6 +221,77 @@ public class HELM2Notation {
 
     return output;
   }
+  
+  /**
+   * method to generate for all sections a HELM2 string
+   *
+   * @return HELM2
+   * @throws HELM1ConverterException 
+   */
+  public String toHELM1() throws HELM1ConverterException {
+    String output = "";
+    /* first section: simple polymer section */
+    output += polymerToHELM1() + "$";
+
+    /* second section: connection section */
+    output += connectionToHELM1(false) + "$";
+
+    /* third section: grouping section */
+    output += connectionToHELM1(true) + "$";
+
+    /* fourth section: annotation section */
+    output += annotationToHELM1() + "$";
+
+    /* add version number */
+    output += "";
+
+    return output;
+  }
+
+  /**
+   * method to generate a valid HELM1 string for the first section
+   *
+   * @return valid HELM1 string
+   * @throws HELM1ConverterException 
+   */
+  private String polymerToHELM1() throws HELM1ConverterException {
+    StringBuilder notation = new StringBuilder();
+    for (int i = 0; i < listOfPolymers.size(); i++) {      
+        notation.append(listOfPolymers.get(i).getPolymerID() + "{" + listOfPolymers.get(i).toHELM() + "}" + "|");
+    }
+
+    notation.setLength(notation.length() - 1);
+    return notation.toString();
+  }
+
+  /**
+   * method to generate a valid HELM1 string for the second section
+   *
+   * @return valid HELM1 String
+   * @throws HELM1ConverterException 
+   */
+  private String connectionToHELM1(boolean connectByH) throws HELM1ConverterException {
+    if (listOfConnections.size() == 0) {
+      return "";
+    }
+    StringBuilder notation = new StringBuilder();
+    for (int i = 0; i < listOfConnections.size(); i++) {
+      notation.append(listOfConnections.get(i).toHELM(connectByH) + "|");
+    }
+
+    notation.setLength(notation.length() - 1);
+    return notation.toString();
+  }
+
+  /**
+   * method to generate a valid HELM1 string for the fourth section
+   *
+   * @return valid HELM1 String
+   */
+  private String annotationToHELM1() {
+    return annotationToHELM2();
+  }
+
 
   /**
    * method to generate for all sections a HELM2 string

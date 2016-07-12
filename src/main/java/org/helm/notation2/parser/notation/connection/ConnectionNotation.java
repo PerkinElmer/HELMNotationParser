@@ -260,17 +260,23 @@ public final class ConnectionNotation {
   }
 
   public String toHELM() throws HELM1ConverterException {
-    String connectiondetails = sourceUnit + ":"
-        + rGroupSource + "-" + targetUnit + ":" + rGroupTarget;
-    String text = sourceId.getId() + "," + targetId.getId() + "," + connectiondetails;
-    if (!(connectiondetails.matches("\\d+:R\\d+-\\d+:R\\d+") || connectiondetails.matches("\\d+:pair-\\d+:pair"))) {
-      throw new HELM1ConverterException("Can't be downgraded to the HELM1-format");
-    }
-    if (connectiondetails.matches("\\d+:pair-\\d+:pair")) {
-      text = "";
-    }
-    return text;
+
+    return toHELM(false);
   }
+  
+  public String toHELM(boolean connectByH) throws HELM1ConverterException {
+	    String connectiondetails = sourceUnit + ":"
+	        + rGroupSource + "-" + targetUnit + ":" + rGroupTarget;
+	    String text = sourceId.getId() + "," + targetId.getId() + "," + connectiondetails;
+	    if (!(connectiondetails.matches("\\d+:R\\d+-\\d+:R\\d+") || connectiondetails.matches("\\d+:pair-\\d+:pair"))) {
+	      throw new HELM1ConverterException("Can't be downgraded to the HELM1-format");
+	    }
+	    if ((!connectByH && connectiondetails.matches("\\d+:pair-\\d+:pair"))
+	    		||(connectByH && connectiondetails.matches("\\d+:R\\d+-\\d+:R\\d+"))) {
+	      text = "";
+	    }
+	    return text;
+	  }
 
   public String toReverseHELM() throws HELM1ConverterException {
     String connectiondetails = targetUnit + ":"
